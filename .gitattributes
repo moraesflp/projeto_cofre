@@ -1,2 +1,145 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+#projeto porquinho
+
+# by: Higor alves
+# Data: 24/05/2022
+# github: 
+
+
+
+
+
+
+
+
+
+print('*'*20, end = "")  # ***** Projeto porquinho *****
+print( 'Projeto porquinho', end = "")
+print('*'*20)
+
+tes = 0
+euro = []
+dolar = []
+peso = []
+real = []
+
+# Variáveis de Saldo
+seu = float(sum(euro))
+sre = float(sum(real))
+sdo = float(sum(dolar))
+spe = float(sum(peso))
+
+
+# cotação
+vdolar = 4.85
+veuro = 5.21
+vpeso = 0.41
+vreal = 1
+
+
+teste = float(sdo / vdolar)
+
+# div= sdo / vdolar
+
+
+# Histórico de operações
+# [2, 50, -20, 10] -> Extrato da Conta
+
+# seu -= 2 # Operação de retirar/sacar
+# seu += 2 # Operação de adicionar/guardar
+# seu = seu-2
+
+
+### Somar e subtrair ao mesmo tempo:
+# Valor1 = 3
+# Valor2 = 7
+# Saldo = 20
+# Saldo = Saldo - Valor1 + Valor2 => Saldo - (Valor1 - Valor2) => Saldo -= (Valor1 - Valor2)
+# Saldo -= Valor1
+# Saldo += Valor2
+
+
+# index=0
+# valoreuro=seu[index]
+
+# PEP
+
+while(tes == 0):
+    print("="*57)
+    print('[1] guardar dinheiro\t\t[2] tirar dinheiro\n'
+            '[3] ver quantidade de moedas\t[4] quantidade em reais')
+
+    escolha = int(input('digite a função que deseja: '))
+
+    if escolha == 1:
+        print('[1] euro\n[2] real\n[3] dolar\n[4] pesos(argentinos)')
+        moeda = int(input('qual moeda vc deseja utilizar: '))
+
+        if moeda == 1:
+            quanteuro = float(input('quantos euro deseja guardar? :'))
+            seu += quanteuro
+            # euro.append(quanteuro)
+
+        elif moeda == 2:
+            quantreal = float(input('quantos reais deseja guardar? :'))
+            sre += quantreal
+
+        elif moeda == 3:
+            quantdolar = float(input('quantos dolares deseja guardar? :'))
+            sdo += quantdolar
+
+        elif moeda == 4:
+            quantpeço = float(input('quantos peso deseja guardar? :'))
+            spe += quantpeço
+
+        elif moeda >4 or moeda<1:
+            print('digite um valor correto')
+    
+    elif escolha == 2:
+        print('[1] euro = ', seu)
+        print('[2] real = ', sre)
+        print('[3] dolar = ', sdo)
+        print('[4] pesos = ', spe)
+        tira=int(input('qual moeda deseja retirar? : '))
+
+
+
+
+
+        if tira == 1:
+            tiraeuro=input('deseja tirar euro? s/n: ')
+            if tiraeuro == 's':
+                tiraeuro1 = float(input('quanto deseja tirar ?:'))
+                seu -= tiraeuro1
+                print(seu)
+                
+        elif tira==2:
+            tirareal=input('deseja tirar real ? s/n: ')
+            if tirareal=='s':    
+                tirareal1 = float(input('quanto deseja tirar ?: '))
+                sre -= tirareal
+                print(sre)
+
+        elif tira==3:
+            tiradolar=input('deseja tirar dolar ? s/n: ')
+            if tiradolar=='s':    
+                tiradolar1 = float(input('quanto deseja tirar ?: '))
+                sdo -= tiradolar1
+                print(sdo)
+
+        elif tira==4:
+            tirapeso=input('deseja tirar peso ? s/n: ')
+            if tirapeso=='s':    
+                tirapeso1 = float(input('quanto deseja tirar ?: '))
+                spe -= tirapeso1
+                print(spe)
+
+    if escolha  == 3:
+        print(f'euro = {seu}')
+        print(f'real = {sre}')
+        print(f'dolar = {sdo}')
+        print(f'peso = {spe}')
+
+    if escolha == 4:
+        print(f'euro = {round(seu / veuro, 2)}  ')
+        print(f'dolar = {round(sdo / vdolar, 2)} ')
+        print(f'peso = {round(sdo / vpeso, 2)} ')
